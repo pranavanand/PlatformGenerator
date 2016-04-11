@@ -4,7 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var db = require('db.js');
+var db = require('./db.js');
+var sql = 'CREATE DATABASE IF NOT EXISTS node_mysql_test';
+db.query(sql, function(err, result) {
+  if (err) {
+    console.log('error');
+  } else {
+    console.log('success');
+  }
+})
+
 
 
 var routes = require('./routes/index');
